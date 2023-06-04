@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 11</title>
+</head>
+<style>
+  table,td{
+    
+    width: 710px; 
+    border-collapse: collapse ;
+  }
+  .container{
+    width: 60%;
+    padding: 40px;
+    margin: 20px;
+    background:linear-gradient(to bottom, rgb(238, 238, 123), rgb(234, 85, 234));
+  }
+  h1{
+    margin-left: 250px;
+    color: blue;
+  }
+  .register{
+    margin-left: 350px;
+    background-color: rgb(238, 32, 32);
+    width: 120px;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+  }
+  .link{
+    text-align: right;
+  }
+  .left{
+    text-align: right;
+    font-weight: bold;
+    padding-right: 20px;
+  }
+  input[type="text"]{
+    width: 98%;
+  }
+  textarea{
+    width: 97%;
+  }
+  input[type="password"]{
+    width: 98%;
+  }
+  .declare{
+    margin-left: 190px;
+  }
+</style>
+<script>
+  function chkblnk(eid,errid){
+    var x = document.getElementById(errid).value;
+    if(x==""){
+      document.getElementById(errid).innerHTML="Poor";
+    }
+    else{
+      document.getElementById(errid).innerHTML="";
+    }
+  }
+  function chkAplha(event,err){
+    if(!((event.which>=65 && event.which<=90) || (event.which>=97 && event.which<=122) || event.which==0 || event.which==8))
+    {
+      document.getElementById(err).innerHTML="Poor";
+      return false;
+    }
+  }
+  function chkeid(){
+    var e=document.getElementById("e").value;
+    var atpos=e.indexOf("@");
+    var dotpos=e.lastIndexOf(".");
+    if(atpos<4 || dotpos<atpos+3){
+      document.getElementById("error2").innerHTML="Poor";
+    }
+    else{
+      document.getElementById("error2").innerHTML="";
+    }
+  }
+</script>
+<body>
+  <div class="container">
+    <h1>Registration Form</h1>
+    <form action="#" >
+<table>
+<tr>
+  <td class="left">First Name</td>
+  <td><input type="text" name="firstname" id="firstname" onkeypress="return chkAplha(event,'error')" onblur="chkblnk('firstname','error')" required/>
+    <div class="col" id="error" style="color:red">Poor</div></td>
+</tr>
+<tr>
+  <td class="left">Last Name</td>
+  <td><input type="text" name="lastname" id="lastname" onblur="chkblnk('lastname','error1')" required/>
+    <div class="col" style="color:red" id="error1">Poor</div></td>
+  
+</tr>
+<tr>
+  <td class="left">Email</td>
+  <td><input type="text" name="email" id="e" onblur="chkeid()" required/>
+    <div class="col" style="color:red" id="error2">Poor</div></td>
+  
+</tr>
+<tr>
+  <td class="left">Password</td>
+  <td><input type="password" name="password" id="password"  onblur="chkblnk('password','error3')" required />
+    <div class="col" style="color:red" id="error3">Poor</div></td>
+  
+</tr>
+<tr>
+  <td class="left">Re-enter Password</td>
+  <td><input type="password" name="repassword" id="repassword"  onblur="chkblnk('repassword','error4')" required />
+    <div class="col" style="color:red" id="error4">Poor or Mismatch</div></td>
+  
+</tr>
+<tr>
+  <td class="left">Gender</td>
+  <td><input type="radio" name="gender" value="male" >Male
+    <br><input type="radio" name="gender" value="female" >Female</td>
+</tr>
+<tr>
+  <td class="left">Phone Number</td>
+  <td><input type="text" name="phone" id="phone" required >
+    </td>
+</tr>
+<tr>
+  <td class="left">Address</td>
+  <td><textarea name="address" rows="5" cols="50" onblur="chkblnk('address','error5')" required>
+  </textarea> <br><div class="col" style="color:red" id="error5"></div>
+   </td>
+ 
+</tr>
+<tr>
+  <td class="left">State</td>
+  <td><input type="text" name="state" />
+    <div class="col" style="color:red" id="error5"></div></td>
+</tr>
+<tr>
+  <td class="left">Country</td>
+  <td><select name="country" required>
+    <option disabled selected value="">Choose your country</option>
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option></td>
+</select>
+</tr>
+<tr>
+  <td class="left">Languages Known</td>
+  <td>
+    <input type="checkbox" name="languages" value="english">English
+    <input type="checkbox" name="languages" value="kannada">Kannada
+    <input type="checkbox" name="languages" value="hindi">Hindi
+    <input type="checkbox" name="languages" value="telugu">Telugu
+  </td>
+</tr>
+<tr>
+  <td colspan="2"><input type="checkbox" name="declare" class="declare" required>
+  Hereby I declare all the given details are true</td>
+</tr>
+<tr>
+  <td class="link" colspan="2">Log in to <a href="#">Ethnus</a> website</td>
+</tr>
+</table>
+<br>
+<input class="register" type="submit" value="Register" onclick="chkblnk">
+</div>
+</form>
+
+</body>
+
+</html>
